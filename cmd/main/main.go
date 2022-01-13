@@ -1,11 +1,11 @@
 package main
 
 import (
-	"log"
-	"github.com/linuxoid69/go-translate/internal/translate"
-	noti "github.com/linuxoid69/go-translate/internal/notification"
+	"fmt"
 	"os"
 
+	noti "github.com/linuxoid69/go-translate/internal/notification"
+	"github.com/linuxoid69/go-translate/internal/translate"
 )
 
 func main() {
@@ -19,11 +19,10 @@ func main() {
 	if lenghWords != 0 {
 		text, err := t.GetTranslate()
 		if err != nil {
-			log.Printf("Can't get text: %v", err)
+			noti.Notify(fmt.Sprintf("Error: %v", err))
 		}
 
 		noti.Notify(text.Text)
 	}
-
 
 }
