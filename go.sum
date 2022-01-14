@@ -1,3 +1,5 @@
+github.com/ZacJoffe/clipboard v0.0.0-20190414232103-e1d59897bf29 h1:FYI7oeoh14IlEJxN+zC6VtU75UDA+oqM/2/xiS1Sgls=
+github.com/ZacJoffe/clipboard v0.0.0-20190414232103-e1d59897bf29/go.mod h1:xcfkWpLs2j7ZNabuXDJ/+VsoCxNxWL/WRssfVxJkTwc=
 github.com/deckarep/gosx-notifier v0.0.0-20180201035817-e127226297fb h1:6S+TKObz6+Io2c8IOkcbK4Sz7nj6RpEVU7TkvmsZZcw=
 github.com/deckarep/gosx-notifier v0.0.0-20180201035817-e127226297fb/go.mod h1:wf3nKtOnQqCp7kp9xB7hHnNlZ6m3NoiOxjrB9hFRq4Y=
 github.com/martinlindhe/notify v0.0.0-20181008203735-20632c9a275a h1:nQcAxLK581HrmqF0TVy2GC3iFjB8X+aWGtxQ/t2uyGE=

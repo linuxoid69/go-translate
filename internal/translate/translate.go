@@ -3,7 +3,6 @@ package translate
 import (
 	"encoding/json"
 	"io"
-	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -27,7 +26,7 @@ type ResponseText struct {
 
 // GetTranslate - get translate text
 func (t *Translate) GetTranslate() (txt ResponseText, err error) {
-	log.Println(strings.Join(t.Params.QueryText, " "))
+
 	res, err := http.PostForm(t.URL,
 		url.Values{"q": {strings.Join(t.Params.QueryText, " ")},
 			"source": {t.Params.SourceLanguage},
