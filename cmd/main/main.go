@@ -11,19 +11,18 @@ import (
 func main() {
 	var t translate.Translate
 	txt, err := clipboard.GetTextFromClipboard()
-	
 	if err != nil {
 		fmt.Printf("Error: %v", err)
 	}
 
 	t.URL = "https://trans.zillyhuhn.com/translate"
 	t.Params.QueryText = []string{txt}
-	t.Params.SourceLanguage = "en"
+	t.Params.SourceLanguage = "auto"
 	t.Params.TargetLanguage = "ru"
 
 	text, err := t.GetTranslate()
 	if err != nil {
-		fmt.Println(fmt.Sprintf("Error: %v", err))
+		fmt.Printf("Error: %v", err)
 	}
 	noti.Notify(text.Text)
 

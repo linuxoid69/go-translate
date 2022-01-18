@@ -36,12 +36,16 @@ func (t *Translate) GetTranslate() (txt ResponseText, err error) {
 	if err != nil {
 		return txt, err
 	}
+
 	defer res.Body.Close()
+
 	text, err := io.ReadAll(res.Body)
 
-	json.Unmarshal(text, &txt)
-
 	if err != nil {
+		return txt, err
+	}
+
+	if err:= json.Unmarshal(text, &txt); err != nil {
 		return txt, err
 	}
 
