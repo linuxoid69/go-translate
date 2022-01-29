@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/linuxoid69/go-translate/internal/clipboard"
 	noti "github.com/linuxoid69/go-translate/internal/notification"
@@ -23,7 +24,7 @@ func main() {
 
 	text, err := t.GetTranslate()
 	if err != nil {
-		string("Error: %v", err)
+		log.Fatalf("error: %v", err)
 	}
 
 	noti.Notify(text.Text)
