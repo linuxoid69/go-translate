@@ -15,14 +15,31 @@ func TestTranslate_GetTranslate(t *testing.T) {
 			Format         string
 		}
 	}
+
 	tests := []struct {
 		name    string
 		fields  fields
 		wantTxt ResponseText
 		wantErr bool
 	}{
-		// TODO: Add test cases.
+		{
+			name:    "Get Translate",
+			wantTxt: ResponseText{"Привет мир"},
+			wantErr: false,
+			fields: fields{
+				URL: "https://trans.zillyhuhn.com/translate",
+				Params: struct {
+					QueryText      []string
+					SourceLanguage string
+					TargetLanguage string
+					Format         string
+				}{
+					QueryText: []string{"Hello", "world"}, SourceLanguage: "en", TargetLanguage: "ru",
+				},
+			},
+		},
 	}
+
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			tr := &Translate{
