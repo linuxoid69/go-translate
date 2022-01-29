@@ -10,9 +10,10 @@ import (
 
 func main() {
 	var t translate.Translate
+
 	txt, err := clipboard.GetTextFromClipboard()
 	if err != nil {
-		fmt.Printf("Error: %v", err)
+		noti.Notify(fmt.Sprintf("%v", err))
 	}
 
 	t.URL = "https://trans.zillyhuhn.com/translate"
@@ -22,8 +23,8 @@ func main() {
 
 	text, err := t.GetTranslate()
 	if err != nil {
-		fmt.Printf("Error: %v", err)
+		string("Error: %v", err)
 	}
-	noti.Notify(text.Text)
 
+	noti.Notify(text.Text)
 }

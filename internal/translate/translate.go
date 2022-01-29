@@ -2,6 +2,7 @@ package translate
 
 import (
 	"encoding/json"
+	"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -34,7 +35,7 @@ func (t *Translate) GetTranslate() (txt ResponseText, err error) {
 			"format": {t.Params.Format}})
 
 	if err != nil {
-		return txt, err
+		return txt, fmt.Errorf("post form with parameters %w", err)
 	}
 
 	defer res.Body.Close()
@@ -42,11 +43,11 @@ func (t *Translate) GetTranslate() (txt ResponseText, err error) {
 	text, err := io.ReadAll(res.Body)
 
 	if err != nil {
-		return txt, err
+		return txt, fmt.Errorf("read response body %w", err)
 	}
 
 	if err:= json.Unmarshal(text, &txt); err != nil {
-		return txt, err
+		return txt, fmt.Errorf("unmarshal error %w", err)
 	}
 
 	return txt, nil
